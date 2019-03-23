@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'burguer.dart';
+import 'burguer_list.dart';
 
 void main() => runApp(MaterialApp(
       title: 'Burguer App',
@@ -9,9 +10,10 @@ void main() => runApp(MaterialApp(
 
 class HomePage extends StatelessWidget {
   List<BurguerCard> burguers = []
-  ..add(BurguerCard("assets/burguer-01.png", "Burguer BYKANU"))
-  ..add(BurguerCard("assets/burguer-02.png", "Burguer Blue Plate"))
-  ..add(BurguerCard("assets/burguer-03.png", "Burguer Big Smasher"));
+    ..add(BurguerCard("assets/burguer-01.png", "Burguer BYKANU"))
+    ..add(BurguerCard("assets/burguer-02.png", "Burguer Blue Plate"))
+    ..add(BurguerCard("assets/burguer-03.png", "Burguer Big Smasher"));
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +23,7 @@ class HomePage extends StatelessWidget {
         backgroundColor: Colors.red,
       ),
       body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 30.0),
+          padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
           child: Column(
             children: <Widget>[
               Align(
@@ -32,7 +34,7 @@ class HomePage extends StatelessWidget {
                       width: 62.0, height: 43.0),
                 ),
               ),
-
+              Expanded(child: BurguerList(burguers))
             ],
           )),
     );
