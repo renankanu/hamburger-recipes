@@ -10,9 +10,10 @@ void main() => runApp(MaterialApp(
 
 class HomePage extends StatelessWidget {
   List<BurguerCard> burguers = []
-    ..add(BurguerCard("assets/burguer-01.png", "Burguer BYKANU"))
-    ..add(BurguerCard("assets/burguer-02.png", "Burguer Blue Plate"))
-    ..add(BurguerCard("assets/burguer-03.png", "Burguer Big Smasher"));
+    ..add(BurguerCard("assets/burguer-01.png", "BYKANU"))
+    ..add(BurguerCard("assets/burguer-02.png", "Blue Plate"))
+    ..add(BurguerCard("assets/hamone.png", "Vulcan Burguer"))
+    ..add(BurguerCard("assets/burguer-03.png", "Big Smasher"));
 
   @override
   Widget build(BuildContext context) {
@@ -26,14 +27,6 @@ class HomePage extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
           child: Column(
             children: <Widget>[
-              Align(
-                alignment: Alignment.center,
-                child: Padding(
-                  padding: EdgeInsets.only(top: 30.0, bottom: 25.0),
-                  child: Image.asset("assets/hamone.png",
-                      width: 62.0, height: 43.0),
-                ),
-              ),
               Expanded(child: BurguerList(burguers))
             ],
           )),
