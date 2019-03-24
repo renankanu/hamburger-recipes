@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class BurguerCard extends StatelessWidget {
-
   String imgUrl;
   String title;
 
@@ -13,10 +12,8 @@ class BurguerCard extends StatelessWidget {
       width: double.infinity,
       height: 320.0,
       decoration: BoxDecoration(
-        color: Color(0xFFfaecec),
+        color: Colors.red.withOpacity(.1),
         borderRadius: BorderRadius.circular(20.0),
-        border:
-        Border.all(color: Colors.grey.withOpacity(.3), width: .2),
       ),
       child: Column(
         children: <Widget>[
@@ -29,20 +26,34 @@ class BurguerCard extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(top: 15.0),
+            margin: EdgeInsets.only(top: 8.0),
             child: Text(
               title,
-              style:
-              TextStyle(fontSize: 25.0, fontFamily: "Alegreya"),
+              style: TextStyle(fontSize: 25.0, fontFamily: "Alegreya"),
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              IconButton(
-                icon: Icon(Icons.fastfood),
-              )
-            ],
+          Container(
+            margin: EdgeInsets.only(right: 5.0, left: 5.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                FilterChip(label: Text('Easy'), onSelected:(b) {}),
+                Chip(
+                  avatar: CircleAvatar(
+                    backgroundColor: Colors.green.shade800,
+                    child: Text('E'),
+                  ),
+                  label: Text('Dificult'),
+                ),
+                Chip(
+                  avatar: CircleAvatar(
+                    backgroundColor: Colors.brown.shade800,
+                    child: Text('B'),
+                  ),
+                  label: Text('Guinness'),
+                )
+              ],
+            ),
           )
         ],
       ),

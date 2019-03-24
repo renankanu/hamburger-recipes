@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'burguer.dart';
 import 'burguer_list.dart';
+import 'detail_burguer.dart';
 
 void main() => runApp(MaterialApp(
       title: 'Burguer App',
@@ -26,10 +27,14 @@ class HomePage extends StatelessWidget {
       body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
           child: Column(
-            children: <Widget>[
-              Expanded(child: BurguerList(burguers))
-            ],
+            children: <Widget>[Expanded(child: BurguerList(burguers))],
           )),
+      floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.ac_unit),
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => DetailBurguer()));
+          }),
     );
   }
 }
