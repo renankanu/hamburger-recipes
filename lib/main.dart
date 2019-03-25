@@ -5,6 +5,11 @@ import 'detail_burguer.dart';
 
 void main() => runApp(MaterialApp(
       title: 'Burguer App',
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        primaryColor: Colors.red,
+        accentColor: Colors.redAccent,
+      ),
       home: HomePage(),
       debugShowCheckedModeBanner: false,
     ));

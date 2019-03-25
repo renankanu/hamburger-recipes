@@ -1,23 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
 
-class DetailBurguer extends StatelessWidget {
-  int current_step = 0;
-  List<Step> _steps = [
-    Step(
-        title: Text('Step 1'),
-        content: Text('Make Hamburguer'),
-        isActive: true),
-    Step(
-        title: Text('Step 2'),
-        content: Text('Make Hamburguer Two'),
-        isActive: true),
-    Step(
-        title: Text('Step 3'),
-        content: Text('Make Hamburguer Three'),
-        isActive: true)
-  ];
+import 'step_make_burguer.dart';
 
+class DetailBurguer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,111 +20,142 @@ class DetailBurguer extends StatelessWidget {
               left: 10.0,
               right: 10.0,
               top: 100.0,
-              child: Card(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15.0)),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    SizedBox(
-                      height: 100.0,
-                    ),
-                    Text(
-                      'BACON LOVER´S',
-                      style: TextStyle(
-                          fontSize: 28.0,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: "Alegreya"),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 15.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          Column(
-                            children: <Widget>[
-                              Icon(Icons.timer),
-                              Text('30 min.')
-                            ],
-                          ),
-                          Column(
-                            children: <Widget>[
-                              Icon(Icons.fastfood),
-                              Text('8 servings')
-                            ],
-                          ),
-                          Column(
-                            children: <Widget>[
-                              Icon(Icons.assessment),
-                              Text('960 calories')
-                            ],
-                          )
-                        ],
+              child: SingleChildScrollView(
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15.0)),
+                  child: Column(
+                    children: <Widget>[
+                      SizedBox(
+                        height: 100.0,
                       ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 24.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          Column(
-                            children: <Widget>[
-                              Text('Difficulty',
-                                  style: TextStyle(
-                                      fontSize: 18.0,
-                                      fontFamily: "Alegreya",
-                                      fontWeight: FontWeight.bold)),
-                              FilterChip(
-                                backgroundColor: Colors.green,
-                                label: Text('Easy'),
-                                onSelected: (b) {},
-                              ),
-                            ],
-                          ),
-                          Column(
-                            children: <Widget>[
-                              Text('Beer Combination',
-                                  style: TextStyle(
-                                      fontSize: 18.0,
-                                      fontFamily: "Alegreya",
-                                      fontWeight: FontWeight.bold)),
-                              FilterChip(
-                                backgroundColor: Colors.brown,
-                                label: Text(
-                                  'Putz Grila',
-                                  style: TextStyle(color: Colors.white),
+                      Text(
+                        'BACON LOVER´S',
+                        style: TextStyle(
+                            fontSize: 28.0,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "Alegreya"),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(top: 15.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: <Widget>[
+                            Column(
+                              children: <Widget>[
+                                Icon(Icons.timer),
+                                Text('30 min.')
+                              ],
+                            ),
+                            Column(
+                              children: <Widget>[
+                                Icon(Icons.fastfood),
+                                Text('8 servings')
+                              ],
+                            ),
+                            Column(
+                              children: <Widget>[
+                                Icon(Icons.assessment),
+                                Text('960 calories')
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(top: 24.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: <Widget>[
+                            Column(
+                              children: <Widget>[
+                                Text('Difficulty',
+                                    style: TextStyle(
+                                        fontSize: 18.0,
+                                        fontFamily: "Alegreya",
+                                        fontWeight: FontWeight.bold)),
+                                FilterChip(
+                                  backgroundColor: Colors.green,
+                                  label: Text('Easy'),
+                                  onSelected: (b) {},
                                 ),
-                                onSelected: (b) {},
-                              )
-                            ],
-                          )
-                        ],
+                              ],
+                            ),
+                            Column(
+                              children: <Widget>[
+                                Text('Beer Combination',
+                                    style: TextStyle(
+                                        fontSize: 18.0,
+                                        fontFamily: "Alegreya",
+                                        fontWeight: FontWeight.bold)),
+                                FilterChip(
+                                  backgroundColor: Colors.brown,
+                                  label: Text(
+                                    'Pure malt beer',
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                  onSelected: (b) {},
+                                )
+                              ],
+                            )
+                          ],
+                        ),
                       ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 15.0),
-                      child: Column(
-                        children: <Widget>[
-                          Text('195 Reviews'),
-                          SmoothStarRating(
-                            allowHalfRating: false,
-                            onRatingChanged: (v) {},
-                            starCount: 5,
-                            rating: 4,
-                            size: 25.0,
-                            color: Colors.redAccent,
-                            borderColor: Colors.redAccent,
-                          )
-                        ],
+                      Container(
+                        margin: EdgeInsets.only(top: 15.0),
+                        child: Column(
+                          children: <Widget>[
+                            Text('195 Reviews'),
+                            SmoothStarRating(
+                              allowHalfRating: false,
+                              onRatingChanged: (v) {},
+                              starCount: 5,
+                              rating: 4,
+                              size: 25.0,
+                              color: Colors.redAccent,
+                              borderColor: Colors.redAccent,
+                            )
+                          ],
+                        ),
                       ),
-                    ),
-                    Expanded(
-                      child: Stepper(
-                        currentStep: current_step,
-                        steps: _steps,
+                      Container(
+                        margin: EdgeInsets.only(left: 20.0, top: 16.0),
+                        child: Column(
+                          children: <Widget>[
+                            Row(
+                              children: <Widget>[
+                                Text(
+                                  'Ingredients:',
+                                  style: TextStyle(
+                                      fontFamily: 'Alegreya', fontSize: 24.0),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: <Widget>[
+                                Expanded(
+                                  child: Text(
+                                      'House bread, Rib burguer, Cheddar english,'
+                                      ' 7 slices of bacon, Maione of the house'),
+                                )
+                              ],
+                            )
+                          ],
+                        ),
                       ),
-                    )
-                  ],
+                      Container(
+                        margin: EdgeInsets.only(left: 20.0, top: 16.0),
+                        child: Row(
+                          children: <Widget>[
+                            Text('Preparation:',
+                                style: TextStyle(
+                                    fontFamily: 'Alegreya', fontSize: 24.0))
+                          ],
+                        ),
+                      ),
+                      StepMakeBurguer()
+                    ],
+                  ),
                 ),
               )),
           Align(
