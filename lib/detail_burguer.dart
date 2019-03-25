@@ -11,7 +11,7 @@ class DetailBurguer extends StatelessWidget {
       appBar: AppBar(
         elevation: 0.0,
         backgroundColor: Colors.redAccent,
-        title: Text('Burguer Details'),
+        title: Text('Burguer Recipes'),
       ),
       body: Stack(
         children: <Widget>[

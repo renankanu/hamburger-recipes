@@ -8,7 +8,7 @@ class BurguerList extends StatelessWidget {
 
   Widget _buildProductItem(BuildContext context, int index) {
     return Container(
-      margin: EdgeInsets.only(bottom: 10.0),
+      margin: EdgeInsets.only(bottom: 15.0),
       child: hamburguers[index],
     );
   }

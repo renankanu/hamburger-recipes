@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'burguer.dart';
 import 'burguer_list.dart';
 import 'detail_burguer.dart';
@@ -16,10 +17,13 @@ void main() => runApp(MaterialApp(
 
 class HomePage extends StatelessWidget {
   List<BurguerCard> burguers = []
-    ..add(BurguerCard("assets/burguer-01.png", "BYKANU"))
-    ..add(BurguerCard("assets/burguer-02.png", "Blue Plate"))
-    ..add(BurguerCard("assets/hamone.png", "Vulcan Burguer"))
-    ..add(BurguerCard("assets/burguer-03.png", "Big Smasher"));
+    ..add(BurguerCard("assets/burguer-01.png", "By Kanu", "1350", "523", true))
+    ..add(BurguerCard(
+        "assets/burguer-02.png", "Blue Plate", "230", "1230", false))
+    ..add(BurguerCard(
+        "assets/hamone.png", "Vulcan Burguer", "9001", "10523", false))
+    ..add(BurguerCard(
+        "assets/burguer-03.png", "Big Smasher", "1035", "360", false));
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +36,31 @@ class HomePage extends StatelessWidget {
       body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
           child: Column(
-            children: <Widget>[Expanded(child: BurguerList(burguers))],
+            children: <Widget>[
+              Container(
+                margin: EdgeInsets.only(top: 8.0, bottom: 15.0),
+                child: Padding(
+                  padding: EdgeInsets.only(left: 15.0, right: 15.0),
+                  child: Material(
+                    elevation: 5.0,
+                    borderRadius: BorderRadius.circular(5.0),
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                          border: InputBorder.none,
+                          prefixIcon: Icon(Icons.search,
+                              color: Color(0xfffe6262), size: 30.0),
+                          contentPadding: EdgeInsets.only(left: 15.0, top: 15.0),
+                          hintText: 'Search',
+                          hintStyle: TextStyle(
+                            color: Colors.grey,
+                            fontFamily: 'Alegreya',
+                          )),
+                    ),
+                  ),
+                ),
+              ),
+              Expanded(child: BurguerList(burguers))
+            ],
           )),
       floatingActionButton: FloatingActionButton(
           child: Icon(Icons.ac_unit),

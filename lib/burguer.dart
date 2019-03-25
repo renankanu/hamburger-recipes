@@ -3,14 +3,17 @@ import 'package:flutter/material.dart';
 class BurguerCard extends StatelessWidget {
   String imgUrl;
   String title;
+  String likes;
+  String countFavorites;
+  bool favorited;
 
-  BurguerCard(this.imgUrl, this.title);
+  BurguerCard(
+      this.imgUrl, this.title, this.likes, this.countFavorites, this.favorited);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 320.0,
       decoration: BoxDecoration(
         color: Colors.red.withOpacity(.1),
         borderRadius: BorderRadius.circular(20.0),
@@ -18,11 +21,21 @@ class BurguerCard extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Container(
-            margin: EdgeInsets.only(top: 8.0),
+            child: Container(
+              margin: EdgeInsets.only(top: 8.0, right: 16.0),
+              alignment: Alignment.centerRight,
+              child: Icon(
+                Icons.favorite,
+                color: favorited == true ? Colors.red : Colors.grey,
+              ),
+            ),
+          ),
+          Container(
+            alignment: Alignment.topCenter,
             child: Image.asset(
               imgUrl,
-              width: 281.0,
-              height: 191.0,
+              width: 201.0,
+              height: 111.0,
             ),
           ),
           Container(
@@ -33,28 +46,37 @@ class BurguerCard extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(right: 5.0, left: 5.0),
+            margin: EdgeInsets.only(top: 8.0, bottom: 8.0),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                FilterChip(label: Text('Easy'), onSelected:(b) {}),
-                Chip(
-                  avatar: CircleAvatar(
-                    backgroundColor: Colors.green.shade800,
-                    child: Text('E'),
-                  ),
-                  label: Text('Dificult'),
+                Column(
+                  children: <Widget>[
+                    Text(
+                      likes,
+                      style: TextStyle(fontFamily: 'Alegreya'),
+                    ),
+                    Text(
+                      'Likes',
+                      style: TextStyle(fontFamily: 'Alegreya', fontSize: 18.0),
+                    )
+                  ],
                 ),
-                Chip(
-                  avatar: CircleAvatar(
-                    backgroundColor: Colors.brown.shade800,
-                    child: Text('B'),
-                  ),
-                  label: Text('Guinness'),
-                )
+                Column(
+                  children: <Widget>[
+                    Text(
+                      countFavorites,
+                      style: TextStyle(fontFamily: 'Alegreya'),
+                    ),
+                    Text(
+                      'Favorited',
+                      style: TextStyle(fontFamily: 'Alegreya', fontSize: 18.0),
+                    )
+                  ],
+                ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );
