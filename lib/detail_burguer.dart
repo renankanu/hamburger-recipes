@@ -4,6 +4,13 @@ import 'package:smooth_star_rating/smooth_star_rating.dart';
 import 'step_make_burguer.dart';
 
 class DetailBurguer extends StatelessWidget {
+
+  String urlImg;
+  String nameBurguer;
+  String nivel;
+
+  DetailBurguer(this.urlImg, this.nameBurguer, this.nivel);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +37,7 @@ class DetailBurguer extends StatelessWidget {
                         height: 100.0,
                       ),
                       Text(
-                        'BACON LOVER´S',
+                        nameBurguer,
                         style: TextStyle(
                             fontSize: 28.0,
                             fontWeight: FontWeight.bold,
@@ -75,8 +82,8 @@ class DetailBurguer extends StatelessWidget {
                                         fontFamily: "Alegreya",
                                         fontWeight: FontWeight.bold)),
                                 FilterChip(
-                                  backgroundColor: Colors.green,
-                                  label: Text('Easy'),
+                                  backgroundColor: GenerateColor().generateColor(nivel),
+                                  label: Text(nivel),
                                   onSelected: (b) {},
                                 ),
                               ],
@@ -168,11 +175,25 @@ class DetailBurguer extends StatelessWidget {
                   decoration: BoxDecoration(
                       image: DecorationImage(
                           fit: BoxFit.cover,
-                          image: AssetImage('assets/burguer-01.png'))),
+                          image: AssetImage(urlImg))),
                 )),
           )
         ],
       ),
     );
+  }
+}
+
+class GenerateColor{
+  Color generateColor(nivel){
+    if(nivel == 'easy'){
+      return Colors.green;
+    }
+    if(nivel == 'medium'){
+      return Colors.amber;
+    }
+    if(nivel == 'hard'){
+      return Colors.red;
+    }
   }
 }

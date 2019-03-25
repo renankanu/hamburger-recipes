@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'burguer.dart';
 import 'burguer_list.dart';
-import 'detail_burguer.dart';
 
 void main() => runApp(MaterialApp(
       title: 'Burguer App',
@@ -17,13 +16,13 @@ void main() => runApp(MaterialApp(
 
 class HomePage extends StatelessWidget {
   List<BurguerCard> burguers = []
-    ..add(BurguerCard("assets/burguer-01.png", "By Kanu", "1350", "523", true))
+    ..add(BurguerCard("assets/burguer-01.png", "By Kanu", "1350", "523", true, "easy"))
     ..add(BurguerCard(
-        "assets/burguer-02.png", "Blue Plate", "230", "1230", false))
+        "assets/burguer-02.png", "Blue Plate", "230", "1230", false, "medium"))
     ..add(BurguerCard(
-        "assets/hamone.png", "Vulcan Burguer", "9001", "10523", false))
+        "assets/hamone.png", "Vulcan Burguer", "9001", "10523", false, "medium"))
     ..add(BurguerCard(
-        "assets/burguer-03.png", "Big Smasher", "1035", "360", false));
+        "assets/burguer-03.png", "Big Smasher", "1035", "360", false, "hard"));
 
   @override
   Widget build(BuildContext context) {
@@ -62,12 +61,6 @@ class HomePage extends StatelessWidget {
               Expanded(child: BurguerList(burguers))
             ],
           )),
-      floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.ac_unit),
-          onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => DetailBurguer()));
-          }),
     );
   }
 }
